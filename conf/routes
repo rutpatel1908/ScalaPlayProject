@@ -5,5 +5,39 @@
 # Home page
 GET     /                           controllers.Application.index
 
+
+GET     /redirect                          controllers.Application.redirect()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#Reverse Routing
+GET     /name                       controllers.Application.parameterPassing(name: String)
+GET     /plannedUpdates                       controllers.Application.plannedUpdates()
+
+#Defaults
+GET   /about controllers.Default.redirect(to = "https://www.playframework.com/")
+GET   /orders     controllers.Default.notFound
+GET   /clients    controllers.Default.error
+GET   /posts      controllers.Default.todo
+
+
+# Form System page
+GET     /formSystem                           controllers.Application.formSystem
+
+# Form System page
+GET     /insertForm                           controllers.Application.insertForm
+# Form System page
+GET     /deleteForm                           controllers.Application.deleteForm
+# Form System page
+GET     /editForm                           controllers.Application.editForm
+
+GET     /addData                           controllers.Application.insertData
+
+GET     /deleteData                           controllers.Application.deleteData
+
+GET     /updateData                           controllers.Application.updateData
+
+GET     /createitem                           controllers.MongoApplicationController.createItem
+GET     /finditem                             controllers.MongoApplicationController.findItemByName
+GET     /getimage                             controllers.Application.streamedWithContentLength
